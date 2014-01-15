@@ -1,4 +1,4 @@
 measurement
 ===========
 
-Measurement in Survey Research
+Early draft of a paper on measurement with special focus on Survey Research.  Please do not quote.
