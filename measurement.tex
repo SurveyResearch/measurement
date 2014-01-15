@@ -1,0 +1,1352 @@
+\documentclass[11pt,twoside]{article}
+\usepackage[toc,page,header]{appendix}
+\usepackage{pdfpages}
+\usepackage{csquotes}
+\usepackage{changepage}
+\usepackage{fontspec}
+\defaultfontfeatures{Scale=MatchLowercase}
+\setmainfont[Mapping=tex-text]{Times New Roman}
+\setsansfont[Mapping=tex-text]{Arial}
+\setmonofont{Courier}
+
+\usepackage{float}
+\usepackage{turnstile}
+\usepackage{bussproofs}
+
+\usepackage{geometry}
+\geometry{letterpaper}
+
+\newtheorem{theorem}{Theorem}
+%\newtheorem{cor}{Corollary}
+%\newtheorem{lem}{Lemma}
+%\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\newtheorem{objection}{Objection}
+\newenvironment*{response}[1][]{\noindent
+\textbf{Response to Objection #1.}
+\begin{adjustwidth}{1em}{1em}
+}
+{\end{adjustwidth}
+\vspace{1ex}
+}
+
+
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage{graphicx}
+\usepackage[leftcaption]{sidecap}
+\sidecaptionvpos{figure}{c}
+
+%\usepackage{amssymb}
+
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\usepackage[
+bibstyle=numeric,
+citestyle=authortitle,
+natbib=true,
+hyperref,bibencoding=utf8,backref=true,backend=biber]{biblatex}
+
+\usepackage{hyperref}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=true,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Answering Brandom's Question},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1} {key2} {key3}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,          % color of internal links
+    citecolor=blue,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+\usepackage{draftwatermark}
+
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+
+\lhead[Measurement]{\thepage}
+\chead[]{}
+\rhead[\thepage]{Measurement}
+
+\title{Answering Brandom's Question: \\
+Pragmatism, Measurement, and the Human Sciences}
+\author{G. A. Reynolds}
+\date{\today}
+\bibliography{%
+../bib/abstracts.bib,%
+../bib/causality.bib,%
+../bib/em.bib,%
+../bib/logic.bib,%
+../bib/math.bib,%
+../bib/mind.bib,%
+../bib/philosophy.bib,%
+../bib/pragmatism.bib,%
+../bib/psychomet.bib%
+../bib/psychometrics.bib,%
+../bib/misc.bib,%
+../bib/measurement.bib,%
+../bib/psychology.bib,%
+../bib/variables.bib,%
+../bib/val.bib,%
+../bib/validity.bib,%
+}
+
+\newcommand{\sr}{Survey Research}
+\newcommand{\SRIV}{Survey Interview}
+\newcommand{\sriv}{survey interview}
+\newcommand{\SIV}{Survey Interviewing}
+\newcommand{\FI}{Field Interviewer}
+\newcommand{\Iver}{Interviewer}
+\newcommand{\R}{Respondent}
+\newcommand{\LPR}{Legal Permanent Resident}
+\newcommand{\ART}{Assimilated Response Technique}
+\newcommand{\GAM}{Grouped Answer Method}
+\newcommand{\IOM}{Instrument of Measurement}
+
+\includeonly{%
+%% pilots,cards
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+\nocite{*}
+
+\begin{abstract}
+abstract
+\end{abstract}
+
+\tableofcontents
+\listoffigures
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+First Principle of Measurement: to measure is to compare.
+
+Second Principle of Measurement:  to compare is to categorize.
+
+\begin{remark}
+  Measurement essentially involves two measurands.  You cannot measure
+  an individuum without involving a second individuum.
+\end{remark}
+
+\begin{remark}
+  These principles are not as simple as they look.  They involve a
+  fundamental philosophical issue, namely the nature of representation
+  and its relation to practice.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Paradigmatic Examples}
+
+Discussions of measurement are often highly abstract, and depending on
+the discipline may introduce specialized vocabulary familiar only to
+readers with experience in the discipline.  To make our text
+intelligible to non-specialists we need specific, detailed, and to the
+extent possible simple examples of actual measurement.
+
+\begin{itemize}
+\item Primitive measurement: counting, height, weight
+\item Time: undoubtedly the most important development in the history
+  of scientific measurement is the measurement of time.  Yet papers on
+  measurement rarely (in my experience, at least) discuss this topic.
+\item Temperature
+\item Hardness (Mohs scale)
+\item Psychology
+\begin{itemize}
+\item Psychophysics - measurement of perception, e.g. loudness, sweetness, color perception, etc.
+\item Personality measurement - anxiety, etc.; the \href{http://en.wikipedia.org/wiki/Big_Five_personality_traits}{Big Five Personality Traits}
+\item Intelligence
+\item Test theory?
+\item Cognitive Psychology?
+\end{itemize}
+\item Sociology
+\begin{itemize}
+\item Unemployment rate
+\item Religiosity
+\item What are the best (simplest, most common, etc.) examples of sociological measures?
+\end{itemize}
+\item Anthropology
+\begin{itemize}
+\item Do anthropologists measure?  Insofar as they analyze structure,
+  it is in principle possible to see what they do as mapping cultural
+  constructs to mathematical structures; see below.
+\end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%
+\section{An Unnatural History of Number}
+
+\begin{abstract}
+  Most accounts of measurement, at least in the behavioral sciences,
+  involve some notion of assigning numbers, but usually do not look
+  very closely at the concept of number.  Since the term ``number''
+  covers a variety of distinct concepts (both historically and
+  theoretically) we should start by getting clear about just what
+  we're talking about.
+\end{abstract}
+
+It's hard to see how to talk about number without circularity, since
+we do not have an antecedent notion of number that we can apply to all
+the relevant historical concepts.  The history of concepts
+recognizably involving something like ``number'' (in the West) is
+complex so take what follows very schematically.  See
+\href{http://ocw.mit.edu/courses/special-programs/sp-2h3-ancient-philosophy-and-mathematics-fall-2009/}{Ancient
+  Philosophy and Mathematics} (MIT Open Courseware);
+\cite{hoyrup_lengths_2002}; \cite{grattan-guinness_numbers_1996};
+\href{http://aleph0.clarku.edu/~djoyce/java/elements/}{Euclid's Elements}. For
+example,
+\href{http://ocw.mit.edu/courses/special-programs/sp-2h3-ancient-philosophy-and-mathematics-fall-2009/assignments/MITSP\_2H3F09\_ses5.pdf}{The
+  Greek Conception of Number}, gives examples showing that ``from the
+Greeks through at least the middle ages `one' was not held to be a
+number''.
+
+\begin{enumerate}
+\item Euclidean ``quantities'' - three distinct kinds of quantity
+\begin{itemize}
+\item Arithmetic Number (counting discrete quantities).  cf. \href{http://www.perseus.tufts.edu/hopper/text?doc=Perseus\%3Atext\%3A1999.04.0057\%3Aentry\%3Da)riqmo\%2Fs}{ἀριθμός} (\textit{arithmos}, number).  Euclid: ``A number is a multitude composed of units.''
+\item Geometric Magnitude (measuring continuous quantities).  Length of a line, area of a square, volume of a solid.
+\item Ratio.  Harmonic?  ``[T]he trio of Euclidean quantities,
+  number–magnitude–ratio, surely bears an intentional cultural
+  correlation with three subjects of the Aristotelian quadrivium,
+  arithmetica–geometria–harmonia.'' \cite[367]{grattan-guinness_numbers_1996}
+\end{itemize}
+\item Zero becomes a number
+\item Negative numbers treated as genuine numbers
+\item The 19th Century
+\begin{enumerate}
+\item Irrationals: in the 19th century Dedekind, Cantor et al.  They
+  find a precise definition of irrational numbers as ``cuts''; they
+  become bona fide ``numbers''
+\item Complex numbers: also in the 19th century, $\sqrt{-1}$ becomes a genuine number
+\item Set theory: quantitative concept of number replaced by structural concept
+\end{enumerate}
+\item 20th Century
+\begin{enumerate}
+\item Category theory: alternative foundational theory replaces concept of set with concept of morphism; mathematics as essentially involving structural isomorphisms
+\item Many other classes of mathematical objects and relations; number-qua-quantity (magnitude) discarded
+\end{enumerate}
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Mathematical Foundations}
+
+\begin{remark}
+  Why mathematical foundations?  Because they afford distinct
+  \textit{conceptual} orientations.  If we adopt an inferential
+  semantics, this means they have different implications.  The
+  question is then what practical effect this may (or may not) have
+  for the way we conceptualize measurment, especially in the human or
+  behavioral sciences.
+\end{remark}
+
+\begin{itemize}
+\item Set Theory
+\item Category Theory
+\item Type Theory
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%
+\section{The Ethnomethodological Perspective}
+
+\begin{remark}
+  EM studies of mathematics, counting, etc. provide a very different,
+  practice-based (or pragmatist) perspective on measurement.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%
+\section{The Four Scales}
+
+\begin{abstract}
+abstract
+\end{abstract}
+
+Stevens' claim is that the four scales form a hierarchy, wherein each
+scale subsumes those that precede it.  Thus the ratio scale
+``contains'' the features of the nominal, ordinal, and interval
+scales.  True enough, on Stevens' way of looking; but that is not the
+only way of looking.  The argument here is a genealogical perspective
+is better.
+
+\subsection{Nominal Scales}
+
+First problem: ``nominal'' is a misnomer.  Nominalism is a
+philosophical doctrine which claims that ...  But when we categorize
+things, we try to say something about things in the world.  It's not
+just a matter of names.
+
+Second problem: the sense-reference distinction.  Names always have
+both; but for science it is critical that terms be treated as purely
+extensional.  ``Electron'' is treated as a term whose extension
+includes electrons and only electrons, full stop; any intensional
+sense to the term is (in principle) irrelevant to scientific usage.
+But it works, since we have a pretty good scientific idea of what
+electrons are.
+
+This works just fine for the hard sciences, but when it comes to the
+human sciences it is a major problem.  What is the extension of, say,
+``anxiety''?  The problem is that it is not even clear that it has an
+extension.  So trying to measure anxiety seems kind of pointless.
+
+Other examples: gender terms; legal status terms (e.g. undocumented,
+legal permanent resident, etc.)  A term like ``male'' seems to have a
+pretty clear intensional sense, but it is no small issue to decide on
+its extension.  What about an individual with female sex chromosomes
+who has male characteristics and functions as a male in society?
+
+The problem goes beyond the trivial observation that terms may have
+different meanings for different persons.  If that were the only issue
+we could just settle on the correct meaning and classify people who
+don't agree with it as in error.  But the problem is that there is no
+way to settle on one true correct extensional meaning for any term.
+Nor is there any reliable way to determine (a priori, as it were)
+whether a particular use of a term is extensional or intensional.
+Words inevitably have intensional senses.  A person might use ``The
+Fab Four'' to refer to John, Paul, George, and Ringo without knowing
+that they are the Beatles.  The classic example is the morning star
+and the evening star: both refer to the same planet (same extension),
+but we have no (a priori) way of knowing whether somebody who uses
+either term is aware of that fact.
+
+A strict formal account of such terms would have to resort to
+intensional semantics, which is a relatively arcane area of modern
+logic, involving so-called possible worlds and the like.  Not
+something the average psychologist or sociologist is likely to have
+mastered.
+
+\subsection{From Ratios to Intervals}
+
+As a purely historical matter, the so-called ratio scale preceded the
+interval scale (at least as those scales are conceived by Stevens).
+The difference is not the presence or absence of ``true zero'', but
+the very concept of \textit{zero}.  For the Greeks, number \textit{is}
+quantity, and that is why they did not have a zero.  If number is
+length, then absence of length cannot be a number.  The number line
+has an origin, but that is a very different notion.  So the Greek
+conception of number was essentially the ratio scale, without the
+concept of zero \textit{as a number}.
+
+\begin{remark}
+  NB: the Kelvin scale has a zero, but it is not possible for anything
+  to actually have a temperature of $0\deg$K.  So Kelvin's zero
+  functions just like the origin of the Greek number line.
+\end{remark}
+
+By the same token, our use of ``zero'' to label a location on an
+interval scale deceives us.  It would be more accurate to call it
+``center''.
+
+Furthermore, note that the Greek conception of a number as a
+\textit{ratio} represents a radical expansion of the concept of
+number.  Before that, we may imagine, number amounted to quantity.
+There is a fundamental conceptual (and real?) difference between a
+discrete quantum (thing), on the one hand, and the ratio on one
+magnitude to another.
+
+So in terms of Brandom's Question, one thing we must be able to do in
+order to count as deploying ratios-as-numbers is to compare two
+distinct individuals under one description.  For example, we must be
+able to 1) treat two distinct rods as being ``the same'', as both
+having extent in space, and 2) comparing one to the other (thus
+ordering), and finally 3) treating one as a unit and the other as a
+multiple of the unit.  All of this was possible even in the absence of
+an explicitly articulated concept of ratios as numbers; the final
+essentially creative move involved a change in \textit{discursive}
+practice: the move to calling ratios numbers.  This change in practice
+\textit{instituted} a change in concepts, rather than the other way
+around.  Creatures incapable of practices involving \textit{treating}
+distinct things as ``the same'' (in the appropriate way), comparing
+them, treating one as a reference unit, etc. would not be capable of
+coming up with the notion of ratio as number.
+
+So historically the move to ratios-as-numbers involved changes in
+practices and therefore concepts.
+
+Historically, again, the Arabic/Indic invention of zero cannot be
+viewed as merely adding a number to the Greek number line.  Rather, it
+involved a fundamental change in the very concept of number.  Or more
+accurately, it involved the emergence of a fundamentally different
+concept of number, one that accomodated (what we call) rational
+numbers without the concept of ratio-as-number.  The concept of
+ratio-as-number is conspcuously absent in the earliest book on
+algebra, al-Khawarizmi's \textit{Kitab al-Jabr wa-l-Muqabala} (from
+which we have the word ``algebra'').  What the Greeks conceived of as
+ratios, the Arabs conceived of as fractions, literally fracturing of a
+whole, rather than ratios of wholes.  The task of algebra is to
+restore wholes; hence the title of al-Khawarismi's manual: ``Concise
+Book on al-Jabr (literally, bone-setting, mending of fractures) and
+al-Muqabala (balance)''.
+
+
+
+There is no way to conceive of zero as a quantity or magnitude, so to
+characterize precisely the concept of number involved we must
+characterize the practices involving number in which zero played a
+role.  Here the fundamental innovation seems to involve algebraic
+calculation, which requires (at least implicitly) negative numbers.
+
+The detailed story of the practical and conceptual innovations
+associated with the invention of algebra by Arabic-speaking cultural
+actors is beyond the scope of this paper, but a few brief remarks are
+in order.  Al-Khawarizmi's \textit{Kitab}, the earliest document
+exhibiting genuinely algebraic manipulations, was a \textit{practical}
+manual.  It contains no abstract mathematical theorizing; where it
+refers to numbers, it always uses concrete numbers, i.e. numbers
+\textit{of} things, and the problems it exhibits are mostly matters of
+commercial or other financial accounting (e.g. dividing inheritances).
+It does not suggest a notion of zero nor of negative numbers; but,
+critically, it does involve addition and subtraction of quantities in
+order to \textit{balance} accounts.
+
+To cut a long story short: the claim here is that the emergence of the
+abstract mathematical concepts of zero and negative numbers \textit{as
+  numbers} was historically and conceptually parasitic on practices
+involving addition and subtraction, deficits and surpluses, and the
+balancing of accounts.
+
+On this view, zero emerges as the center of a structure, flanked on
+either side by negative and positive numbers.  And again, when this
+notion found its way into the European tradition it eventually
+generated a fundamental change in the very concept of number - a
+change that is historically and conceptually parasitic on practices of
+calculation.
+
+\begin{remark}
+We have two sorts of genealogy: the historical record of the emergence
+of practices and concepts, and the structural ``genealogy'' of the
+practices that institute conceptual content.  By treating conceptual
+structure as a genealogical structure I mean that we can identify the
+structure of the concepts involved so as to show how the ``later''
+structures build on the ``earlier'' ones.  This sort of ``genealogy''
+is conceptual and logical (that is, philosophical) rather than
+historical; what Huw Price calls ``philosophical anthropology''.  But
+it still counts as a genealogy, in that it tells a story of how we
+come to have the concepts we have.
+\end{remark}
+
+\begin{remark}
+TODO: show more clearly (in Brandomian terms) how the
+practical/conceptual structure of interval scales depends on the
+practical/conceptual structure of ratio scales.  This would involve
+showing how the features of the practices that institute the one
+concept presuppose those that institute the other.  Or something like
+that.
+\end{remark}
+
+Significance for the four scales?  For one thing, it reverses the
+order of ratio and interval scales.  The ratio scale is more primitive
+than the interval scale.  It also suggests a change in terminology.
+The fundamental difference between ratio and interval scales is not
+ratios v. intervals, but a change in number concept: a ratio scale has
+an origin (misnamed ``true zero''), and an interval scale has a
+center.  A ratio scale measures magnitudes; an interval scale measures
+directed magnitudes (vectors).  So a better nomenclature would use
+``scalar'' and ``vector'' for ``ratio'' and ``interval'',
+respectively.
+
+Alternatively, an interval scale is essentally an algebraic structure.
+So we could call ratio scales arithmetic, and interval scales
+algebraic.
+
+\begin{remark}
+  What about scales that use the complex numbers?  Why not?
+\end{remark}
+
+Relevance for measurement?  Hmmm.  At this point I'm not sure if any
+substantial implications flow from this analysis.  But it is a
+different interpretation of the scales so it could have pedogogical
+implications.
+
+One possibility: we take interval scales to be about structures with
+centers (and hence measurements with orientations), rather than about
+mere intervals.  This is a conceptual change.  If we suspect some
+``construct'' has interval structure, this means something more than
+merely that levels are expressed as intervals, or that only certain
+operations on the scale are allowed.  It means that the structure
+involved has a center, that individuals can have ``positive'' and
+``negative'' levels of the measurand, and that the additive structure
+of the scale implicates ``balancing'' and not merely accumulation.
+
+\begin{remark}
+``Additive'' structure is standardly taken to be an essential property
+  of any empirically measurable attribute.  But the very term suggests
+  the arithmetic scale, where addition means accumulation.  But the
+  ``additivity'' of an algebraic scale with a center and ``negative
+  measurements'' involves moving in both directions, so to speak; not
+  merely accumulation and diminution, but also ``negation''.
+  Arithmetic addition as a combining operation distinct from the
+  corresponding algebraic operation.  The Greeks could not subtract 3
+  from 2 (this qua characteristic of arithmetic additivity).  The
+  Arabs, with an accounting-based, algebraic conception of
+  computation, could, because the result could be conceptualized as a
+  deficit rather than a length.
+\end{remark}
+
+Example: use of an interval scale of some sort with questions like
+``Do you approve/disapprove of the job the President is doing?''  On
+the mathematical interpretation of an interval scale as an algebraic
+structure with a center, this forces us to treat disapproval as
+negative approval.  That seems dubious; we could just as well treat
+approval and disapproval as distinct qualities, each involving
+an arithmetic ``ratio'' scale with an origin rather than a center.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Pragmatism and Measurement}
+
+Brandom's Question is (roughly): ``what features must be exhibited by
+practices in order that those practices count as having conceptual
+content?''  In the case of measurement, the question may be restated
+as ``what features must be exhibited by our measurement practices so
+that they be counted as genuinely having the character of
+measurement?'' [TODO: refine this]
+
+In the case of the scales, we can take Brandom's Question as a schema
+and ask four distinct questions:
+
+What features must our measuring practices exhibit in order to count
+as having the significance of:
+
+\begin{itemize}
+\item Categorization? (Nominal scale)
+\item Ordering?  (Ordinal scale)
+\item Measuring distance? (Interval scale)
+\item Measuring ratio? (Ratio scale)
+\end{itemize}
+
+Stevens does not ask Brandom's Question; what matters for him is the
+mathematical structure of the scales.  For example, interval scales do
+not have a ``true'' zero, but ratio scales do; thus, Stevens sees
+a ratio scale as an interval scale augmented by a true zero.
+
+One problem with this mathematicized perspective is that it clashes
+with history.
+
+But it also has conceptual and logical problems.
+
+We can ask ``Is Stevens' concept true (valid, etc.)?''  But that seems
+the wrong question; it is a simple fact that we can describe the four
+scales in just the way Stevens does.  By definition, interval scales
+do not have a true zero and ratio scales do.  That's a purely
+mathematical matter, and it is virtually always possible to offer
+alternative descriptions of mathematical structures, no one of which
+can be selected as the one true description.  But the point of the
+four scales is to address issues of empirical measurement, so the
+better question is whether the Stevens description is more
+enlightening or useful than alternatives.  The argument here is that
+it is not, that a pragmatic, genealogical description (Price:
+philosophical anthropology) offers a better account of measurement.
+Better in the sense that it focuses on our practices of measurement
+rather than on the derived abstract description of the mathematical
+properties of the scales we devise.
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Causality and the Space of Reasons}
+
+\begin{abstract}
+abstract
+\end{abstract}
+
+\noindent
+\cite{abell_narrative_2004} \\
+\cite{crane_mental_1995} \\
+\cite{gross_pragmatist_2009} \\
+\cite{jackson_mental_1996} \\
+\cite{lowe_causal_1993} \\
+\cite{lowe_non-cartesian_2006} \\
+\cite{macdonald_mental_1986} \\
+\cite{menzies_causation_1993} \\
+\cite{morris_causes_1986} \\
+\cite{williamson_broadness_1998}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Measurement}
+
+\begin{abstract}
+abstract
+\end{abstract}
+
+\begin{remark}
+
+Micro-macro:  temp as macro v. motion of molecules
+
+Emergence: liquidity is an emergent property of H2O molecules; is temp
+an emergent property of moving molecules?  It must be insofar as temp
+is a subjective property (hot, cold, etc.)
+
+Supervenience: or is temperature something that supervenes on groups
+of molecules in motion?
+
+\end{remark}
+
+To measure is to characterize under a mathematical description.
+Instead of ``measurement'', use the broader notion of mathematical
+description.  So-called nominal measurement is not quantitative (nor
+is ordinal measurement); calling it measurement clashes with our
+intuition, which connects measurement with quantity or magnitude.  But
+both do involve mathematical structure.  Mathematics is the science of
+structure, not quantity.
+
+Measurement claims are thus construed as claims about the structure of
+some state of affairs in the world.  We express such claims in the
+vocabulary of mathematics (plus an empirical vocabulary involving a
+``dimension'' such as length); a ``valid'' measurement is a claim
+expressing or describing a mathematical structure that corresponds
+accurately (correctly) to the way things are.
+
+Observable v. unobservable: implicit causal relationship.  Observable
+as proxy for unobservable.  They must covary.
+
+But this distinction is not simple.  Temperature \textit{sensation} is
+observable, but sensation is distinct from the property in the world.
+When we measure temperature, we use proxy properties, such as the
+height of a column of mercury.  So temperature is not observable in
+the required sense.  That is, its mathematical structure is not
+directly observable.  Contrast with measurement of length, which is
+directly observable.  Or is it?  To measure length we rely on the
+sensations involved in vision: we see that the measurand is twice the
+length of the unit instrument.  But not really: we do not \textit{see}
+length per se; rather, we see a stick and use the term ``length'' to
+express something about it, based on our experience with things in the
+world, namely one of the ways we can compare them.  Which suggests
+that terms like ``length'' are expressive in Brandom's sense: they
+allow us to say what we can only otherwise do.  What we do is compare
+things; saying that a stick is 1 meter long just saves us the trouble
+of carrying out a comparison.
+
+Alternatively we could express the same idea in terms of affordances:
+when we look at a stick, we do not see its length, but we do see (so
+to speak) one of its affordances: sticks afford lengthwise
+comparison. (cf. Gibson)
+
+Furthermore, there is the problem of the Myth of the Given and need to
+explain how we go from merely responding to understanding.  This too
+tends to subvert the observed/unobserved distinction, since we have to
+ask just what it is that is observed, and what it is to observe.  We
+cannot rely on mere sensory input, since that leads to the Myth.
+Insofar as observation is a move in the Game of reasons, it is already
+``theoretical'', that is, conceptual, from the very start.
+
+IOW, the observable/unobservable distinction is often conflated with
+the Given/theoretical distinction.  Observables are no more given than
+unobservables are.  But they are directly connected to the causal
+order.  So it would be better to talk of the distinction between
+causal and rational orders instead of observables and unobservables.
+Or perhaps we should stick to vocabulary talk, and make a distinction
+between observation reports and other sorts of expressions.  Some
+things afford observation reports, others do not.
+
+Electrons are not observables; they do not afford observation reports.
+But they are causally related to things that do afford such reports.
+The job of theory is to articulate the hypothesized structure that
+accounts for such reports in terms of causal relations with electrons.
+This involves two of the three sorts of language moves: language
+entries (things affording observation reports), and language-language
+(theory).  Language exits involve what we do, not theoretical
+predictions about what things in the world do, so the theory predicts
+future language-entry moves (observations).
+
+This is quite different from e.g. defining SES in terms of occupation,
+etc.  Such definitions are conceptual and do not involve causal
+relations.  Occupation does not cause SES; it is involved in what SES
+\textit{means} (inferentially), rather than what it is or how it came to
+be.  So defining it is not not about discovering the nature of
+something in the world.  Contrast definition of electron: it must
+answer to the way things are in the causal order.  Our notion of SES
+must only answer to the way things are in the normative order, which
+is our order, our way of doing things, the way we cope.  If it's
+useful, we use it; if not, we try other definitions.  There is no
+question of its truth or accurate representation of something in the
+world.  Its a piece of methodological pragmatism: its only purpose is
+to explain our doings.  No metaphysics here, and also no (genuine)
+measurement.  Putative measurements of SES should be treated as
+methodological conveniences, not as claims about the true state of
+affairs in the world.  Claims that may help us cope or decide what to
+do, or even predict what will happen.  Not because we've measured some
+fact in the causal order, but because we know something about norms,
+and norms have a kind of predictive power.  We know what ought to be
+the case; whether things in fact will turn out that way is a different
+matter.
+
+SES measures as descriptions, which do not necessarily entail
+predictions.  Compare studies primate sociality.
+
+Evolution, selective pressures, etc.  Primate anthropologists want to
+discover selection pressures, not ``causes'' or the ordinary type.
+That is causality in evolution is different than causality in physics.
+Evolutionary causality v. nomological causality.  SES measures as a
+way of getting at ``selection pressures'' that result in social
+change, etc.
+
+``We can use the kinds of methods described here to test hypotheses
+about the selective forces that shape behavioral strategies and to
+construct comparisons across individuals, groups, or taxa.'' (Silk
+et al. p. 223)
+
+\subsection{Previous Work}
+
+``Paraphrasing N.R. Campbell (Final Report, p.340), we may say that
+measurement, in the broadest sense, is defined as the assignment of
+numerals to objects and events according to rules.''
+\parencite[677]{stevens_theory_1946}
+
+
+``[M]eaningful measurement is possible only if enough is known about
+the attribute so as to justify its logical operationalization into
+prescriptions from which a measurement instrument can be developed.''
+\parencite[787]{sijtsma_psychological_2012}
+
+I would rather say the measurement is possible only if we have a
+theory of description that allows us to make predictions involving
+measurable (observable) phenomena.
+
+\subsection{Model Theory}
+
+Truth and consequences and measurement claims.
+
+Relevance of MT: (valid) measurement is all about representation,
+reference, truth, and validity.  (Although a pragmatist might argue it
+is about what works rather than what corresponds to reality.)
+Tarski's semantic theory of truth and model-theoretic account of
+consequence together form the pinacle of this approach.
+
+Tarski (Convention T and model theory) as the pinacle of
+representational accounts of truth and consequences.
+
+Relevance to measurement?  We want to know if our measurement claims
+are truth, and if the inferences we make involving such claims are
+valid.
+
+Measurement claims reduce to mathematical claims plus empirical
+claims.  The mathematical part of this accounts for structure.
+
+Model theory: to prove a logical consequence relation between a set of
+statements $\Gamma$ and a statement $A$, first translate them from the
+formal calculus to the language of ordinary theory (e.g. Group
+Theory), and then prove the resulting theorems using the informal
+techniques of the ordinary theory.
+
+Is something similar involved in ``proving'' an empirical measurement
+claim (which is a theory)?  One difference is goals: the goal of MT is
+to show that the formal calculus is ``good''.  Science isn't too
+worried about formal calculi, but it would presumably be a good thing
+if we could express scientific theories formally and thereby enable
+formal (automated) reasoning about them.  But we don't normally
+express measurement claims in a formal calculus.  Indeed, since
+measurement claims necessarily involve an empirical component
+(e.g. units of measure involving empirical properties, that is
+properties of things in the world), to do so would require formalizing
+such empirical notions, thus draining them of their empirical
+content).
+
+%%%%%%%%%%%%%%%%
+\subsection{Measurement as assignment of numbers}
+
+``Paraphrasing N.R. Campbell (Final Report, p.340), we may say that
+measurement, in the broadest sense, is defined as the assignment of
+numerals to objects and events according to rules.'' (Stevens, 1946,
+p.677).
+
+This can't be entirely correct.  What we assign is not a numeral but a
+location or position in a mathematical structure.  E.g. to assign '3'
+to a quantity is not to attach a free-standing ``numeral'' to it, but
+to assign it a place in the structure of integers.
+
+So each scale type corresponds to a class of mathematical structures.
+
+Nominal:  sets?  But sets are partially ordered.
+
+Ordinal:  sets?  But sets also give us intervals?
+
+A nominal scale seems to involve set membership (characteristic
+functions) at least.  But if we can measure the size (cardinality) of
+a set we end up with order and intervals.  So it looks like we must
+stipulate that these mathematical properties are not to be ascribed to
+the measurands.  Thus nominal measurement involves a partial mapping
+to sets, or rather a mapping to a set structure that does not admit of
+ordering or intervals.  Hmmm.
+
+Ordinal scales involve order without difference.  Again that makes it
+hard to think of ordinal measurement as involving mapping to sets.
+Lattice theory?
+
+Does it make sense to think of a mapping to a logical rather than a
+mathematical structure?
+
+Better: we take set theory a little bit at a time.  Start with the
+basic axioms, then define preorders, posets, etc.  So we can treat
+something as a poset without introducing cardinal and ordinal numbers
+(I think).
+
+In any case, the upshot is that (representational) measurement
+postulates a mathematical structure to the measurand.
+
+Michell's concern with whether or not a variable or construct is in
+fact quantitative can be restated in structural terms.  Quantitative
+properties etc. (in the world) have mathematical structure.  Or, to
+say that something is measurable is to say that it has a particular
+kind of structure.
+
+Validity ``how well the measured variable represents the attribute
+being measured'' comes out as \textit{referential fidelity}.  Measurement
+of something that lacks the requisite mathematical structure will then
+lack referential fidelity.  Referential fidelity is broad enough to
+cover both accuracy and precision of measurement.
+
+\subsection{Validity as assessment of correctness}
+
+I.e. to assess something as correct or incorrect is to measure it
+against a norm.  In the case of e.g. temperature measurement, the norm
+is the ``true'' temperature of the sample being measured.
+
+Relevance: validity involves normativity and a kind of measurement
+against (usually unstated) norms or ``true'' standards, which may be
+(idealized) methods, etc.
+
+Thus referential fidelity as correctness of representation.
+
+\noindent References:
+
+\noindent
+\cite{chang_inventing_2004} \\
+\cite{chang_measurement_2004} \\
+\cite{chang_spirit_2004} \\
+\cite{martin_counting_2009} \\
+\cite{michell_normal_2000}\\
+\cite{sherry_thermoscopes_2011}
+
+See British Journal of Psychology, Aug 1997 vol 88 issue 3:
+\cite{michell_quantitative_1997} and six commentaries.
+
+%%%%%%%%%%%%%%%%
+\subsection{Variables}
+
+References:
+
+\noindent
+\cite{schwarz_is_2009}\\
+\cite{toomela_variables_2008}\\
+\cite{stam_fault_2010}
+
+%%%%%%%%%%%%%%%%
+\subsection{Error}
+
+References:
+
+\noindent
+\cite{smith_refining_2011}
+
+%%%%%%%%%%%%%%%%
+\section{Validity, Reliability, Error}
+\label{sub:Validity}
+
+\begin{remark}
+What is the point of worrying about validity?  Is it something in the
+world that we are trying to discover?  Then we're trying to find ``the
+right description of the world'' (Putnam).  Or is it a concept, so
+that validity talk is about conceptual analysis and definition?
+
+Or: we try to find the right description, and validity talk is part of
+how we decide that we have found it.
+
+\end{remark}
+
+\begin{remark}
+Why do psychometricians and the like worry so about validity?
+
+Hypothesis: when they say ``validity'', what they're really interested
+in is scientific legitimacy.  Effectively, to say that a test (etc.)
+is valid is to say that it is in fact scientific.  Thats the practical
+import of the concept of validity for them.
+
+Unpack this.  Expose the assumptions and implications.
+\end{remark}
+
+key concepts:
+
+\begin{itemize}
+\item validity treated as a special kind of property - of what?
+\item constructs
+\item (latent) variables
+\item indicators
+\end{itemize}
+
+``validity'' as code for:
+
+\begin{itemize}
+\item legitimacy
+\item vindication
+\item credibility
+\item proof (good premises + valid inference)
+\end{itemize}
+
+\begin{remark}
+  On the idea that validity something (a property, etc.) that we look
+  for in scientific theories in order to distinguish good ones from
+  bad: see Putnam on fact/value distinction.  We use value judgments -
+  simplicity, parsimony, etc. - in every aspect of science (thought),
+  esp. in weeding out bad theories.  For there is no external or
+  objective criterion of acceptability for theories to which we can
+  appeal, nor is there any such citerion that does not involve value
+  judgments.
+\end{remark}
+
+\begin{remark}
+  So along with the fact/value distinction, and the analytic/synthetic
+  distinction, the internal/external distinction also collapses?  Or
+  do we just exclude the notion of external?  No; we need to retain
+  the idea of an external world that is independent of us and to which
+  some of our judgments are answerable.  We don't get to just make
+  stuff up and call it true (correct) for at least some of our claims.
+  There is no external absolute authority that can decide for us which
+  theories are true, or rather which we should endorse, but that does
+  not mean there is no external world that is authoritative for some
+  of our sayings.  But isn't that trying to have it both ways?  How
+  can our theories answer to the world if we cannot appeal to the
+  world or some other external authority to sort them out?  See
+  Brandom.
+
+Related issue: what counts as evidence?  How do we decide?  What are
+we doing when we decide that something counts as strong (weak)
+evidence in support of a theory?  What are the criteria of adequacy
+for an account of evidence?
+\end{remark}
+
+\section{RCT and Self-validation}
+
+See Cartwright on RCT as self-validating.  This seems to mean that
+RCTs are valid by construction.
+
+This nicely parallels industrial QA notions of guaranteeing quality by
+designing a production process that prevents defects.
+
+What's the logic here?  Is self-validation really possible?  How can a
+process validate itself - isn't the very idea inherently circular?  Or
+rather, don't we land in a regress?  After all, if the idea is to
+specify a process that yields validity, how do we know that that
+process is itself valid?
+
+\section{Vocabularies}
+
+Measurement as description.  Description v. evaluation.  Price on
+naturalisms.  The bifurcation thesis.
+
+\section{Conflation of Causal and Logical Relations}
+
+
+
+\section{Deflationism about Validity}
+
+\begin{remark}
+  Deflationism seems to depend essentially on some form of
+  expressivism.  Or maybe they amount to the same thing?
+\end{remark}
+
+How can we get out of this mess?  One way is to deflate the notion of
+validity, just deny that it is a substantive property.  When we claim
+that a result is valid etc. what we are really saying is that we
+endorse it, approve of it, etc.  It's an expressive device.  Compare
+the semantic deflationist's idea that calling something true amounts
+to endorsing or approving of it.
+
+So if we discard the notion of validity (since it does no real work),
+don't we find ourselves lacking something essential?  Well, we just
+need a vocabulary that allows us to say explicitly the sorts of things
+we find it useful to be able to express with respect to a study or qx
+technique.  For example: credibility, utility, legitimacy,
+vindication, justification, etc.
+
+\begin{remark}
+  The notion of validity seems to be connected to the problem of
+  deciding which theories we should endorse.  What are the criteria of
+  adequacy for any notion (or theory) of validity?  Or: what are the
+  requirements that should be met by any purported explanation of
+  validity?  Both particular cases and the general idea.  Tarski gives
+  us something like this for logical validity; what about ``validity''
+  as the term is used by psychometricians, test theorists, etc.?
+
+Contrast: claims of validity for a case, v. explanation of what
+validity is.
+
+
+\end{remark}
+
+The objection will no doubt be that we need some kind of standard,
+which is just to say that we want to measure this something (validity,
+credibility, whatever).  Implicit in all this is the notion that there
+is some ``objective'' fact of the matter to which our
+study/technique/etc. is ansswerable. A study is valid iff - what?  If
+it meets some definite ``objective'' criteria.  Methodological
+criteria, conditions of validity, etc.  In the psychometrics and
+testing tradition this appeal to external authority is expressed as
+something along the lines of ``measures what it purports to measure''.
+Which is only meaningful insofar as a) there is actually something
+there to measure, and b) it is in fact susceptibel to measurement.
+
+And usually this is expressed in statistical terms.  But that dog
+won't hunt either - you cannot get to validity via statistics.  All
+you can do is measure central tendencies and variance - not enough to
+establish validity, which is a substantive notion. (analysis
+elsewhere).
+
+To say that sth is valid is just to say that it is admirable
+(Peirce?), or perhaps that it is virtuous, that it has the virtues we
+prize.
+
+\section{Fact-Value}
+
+Messick, for one, conflates two kinds of fact/value distinction.  The
+Kantian idea that we structure our own experience (etc.), Sellars'
+Myth of the Given, and etc. - such stuff shows how there is no data
+that is ``objective'' and given i.e. ``data is theory-laden''.
+
+So facts involve what Putnam calls ``epistemic values''.
+
+Messick confuses epistemic and ethical values.  He seems to think that
+although we cannot arrive at value-free facts, this is because brute
+facts are always packaged with ethical values.  The idea seems to be
+that ethical values are something separate from facts but always
+attached to them somehow.  Whereas the real problem is that there is
+no genuine distinction between fact and (epistemic) value.  Facts
+express (as it were) our epistemic values.
+
+Messick's confusion is clear in his distinction between the scientific
+and social ``roles'' of validity - as if the social (value-laden)
+aspect of (Messickian) validity is something distinct from the
+science.  ``[I]t is fundamental that score validation is an empirical
+evaluation of the meaning and consequences of measurement.  As such,
+validation combines scientific inquiry with rational argument to
+justify (or nullify) score interpretation and use.'' (p. 742) But
+``scientific inquiry'' and ``rational argument'' are not two distinct
+things that can be combined.  They are the same thing, at least
+conceptually.  If there is a difference here, it is sociological -
+science as a way of conduction oneself, etc.
+
+Messickian validity boils down to some notion of empirical support for
+theoretical explanations.  For him ``evidential basis'' seems to
+correspond to ``real'' science, and ``consequential basis'' to
+``rational argument''.
+
+``[B]oth meaning and values are integral to the concept of
+validity...'' (p. 747).  The problem here is that the contrast with
+value is fact, not meaning.
+
+``Meaning'' is not something that can be empirically ``validated''.
+
+\section{Word-World}
+
+One problem with e.g. Messick is fuzziness about the relation of
+language to world.  Ditto for any notion of ``measuring a concept''.
+
+Re: validity: is it supposed to be a property of things in the world,
+or just a concept?  Per Messick, validity is ``associated with'' score
+interpretation and use.  This would seem to imply that it is a matter
+of language (concepts).  But the language is just sloppy; ``score
+interpretation'' might (should) refer to how we take a score to relate
+to some fact in the world, in which case the question is just what is
+validity-in-the-world.
+
+In any case, Messick's whole discussion is muddled on this point; it
+is rarely clear when he is talking about facts, concepts, or the
+relation between the two.  Is a ``construct'' supposed to be something
+in the world or a concept the describes some aspect of the world?
+
+Construct v. ``indicators''.
+
+Compare positivist notions of observational language v. theoretical
+language.  So-called indicators are (I understand) supposed to be
+empirical observables.  Their relation to the construct is (must be) a
+matter of theory; but then is that theoretical (conceptual) structure
+to be taken as a mirror of reality, such that the construct is a real
+(albeit ``hidden'') bit of the world and its relations to the
+indicators are real relations in the world?
+
+\section{Hypothetical Entities}
+
+Putnam, Brandom, etc. - if the existence of (some) hypotheticals makes
+no difference in the way things are then we can just discard them.  As
+Putnam puts it, ``Would mathematics \textit{work} one bit less well if
+these funny objects \textit{stopped} existing?  Those who posit
+``abstract entities'' to account for the success of mathematics do not
+claim that we (or any other things in the empirical world)
+\textit{interact} with the abstract entities.  But if any entities do
+not interact with us or with the empirical world \textit{at all}, then
+doesn't it follow that \textit{everything wouuld be the same if they
+  didn't exist}?'' (Collapse, p. 33)
+
+This points out another problem with e.g. latent variables, namely
+that they are supposed to have causal powers, but, insofar as they are
+abstract at least, they have no connection to the empirical world and
+so cannot cause anything.  The counterargument would presumably be
+that hidden does not necessarily mean abstract.  But in that case they
+must have a location in space-time, even if we don't know what it is.
+But this just leads to more problems: where are hidden psychological
+processes supposed to occur?  It can't be the brain, since they are
+(by stipulation) psychological, not neurological.
+
+So it seems we have no choice but to treat postulation of hidden stuff
+as a matter of Brandomian methodological pragmatism: useful, but
+without ontological consequences.  ``Constructs'' may be useful for
+explaining observable indicators, but they don't really exist in any
+meaningful sense.  But the usual story goes the other way around:
+indicators are useful because they are how we get constructs.
+
+Another perspective: hard science starts with observation and moves to
+number, theory, etc.  Psychometrics reverses this, starting with
+number and theory (latent vars, etc.) and then seeking observational
+support.
+
+Example: temperature v. anxiety.  The former is directly associated
+with publicly available bodily experience.  Is the latter?  Anxiety
+may be experienced by individuals but it is not public in the way the
+temperature of an external phenomenon is public.  The sensation of
+temperature may be private, but it is directly linked to the (public)
+causal order.  So although both are essentially conceptual, only the
+former answers to the state of the world.  There is no prima facie
+reason to think that the concept of anxiety represents something in
+the world; in this respect it is just like ``Zeus'' or ``phlogiston''.
+So trying to measure ``it'' inescapably involves starting with a
+speculative ontological hypothesis.  Whereas trying to measure
+temperature starts with something observable.
+
+Same point made from perspective of anthropology: we can be 100\%
+confident that all cultures encounter things in the world that are hot
+or cold, regardless of their concepts.  But we cannot be sure that
+anxiety - either the thing itself or the concept/term - is a cultural
+universal.
+
+\begin{remark}
+  TODO: explicit comparison of psychometrics with failed but arguably
+  scientific measurement projects like the caloric theory, phlogiston,
+  etc. on the one hand, and clearly pseudoscientific projects like
+  astrology, ESP, etc. on the other.  The task is to determine which
+  one psychometrics is.  Is psychometrics in a ``caloric theory''
+  phase, genuinely scientific yet lacking good theories, or is it like
+  astrology?  It's open to the psychometrician to argue that the
+  science is young, and that just because it is a science it will
+  self-correct, so that eventually we will have the theories and
+  practices needed to make precise measurements of anxiety (or its
+  successor concept) - possibly by measuring brain states and
+  structures.  The problem with this argument is that it continues to
+  overlook or ignore the fact that categories like ``anxiety'' are
+  only intelligible in the space of reasons; they are creatures of the
+  normative order, not of the natural (causal) order.  So the question
+  becomes whether they answer to anything in the causal order in the
+  way that temperature answers to physical states of the world.  The
+  fundamental hypothesis (or speculation) of psychometrics seems to be
+  that the concepts of the folk psychology from which psychometrics
+  draws its ``constructs'' are causally related in some way to the
+  causal order.  The objection is that there is no such causal
+  relation, that the relations between these concepts is entirely
+  normative.
+\end{remark}
+
+\section{Personal v. Subpersonal}
+
+Reasons v. causes
+
+\section{Spaces}
+
+\subsection{Natural space of causes}
+
+\subsection{Discursive space of reasons}
+
+\section{Notes}
+
+\subsection{Evolution}
+
+Instead of "the QA process", the proper object of investigation is the
+local evolution of discourse.
+
+EM studies local produced order.  It may come up with a structural
+description.  But locally produced order is the outcome of an
+essentially evolutionary process - the mutual adaptation of the
+participants to each other and the context.  Also, any such model may
+not (probably will not) generalize.  But what does generalize is the
+evolutionary mechanism itself, just like in biology.
+
+Rational selection as the mechanism of the evolution of discursive
+performances.  What accounts for the deontic attitudes we adopt
+regarding performances?  Brandom's account describes the architecture
+of such posturings and the significances the institute.  But it does
+not really address the logic of discourse as an evolutionary process.
+
+The idea is that Brandom provides an account of discourse qua rational
+action.  Different attitudes are endorsed or undertaken for reasons -
+that is the source or ground of the intelligibility of discursive
+practice.  So if we view the unfolding of discourse as being governed
+by the logic of evolution, we can treat Brandom's sort of rational
+pragmatism as the selection mechanism that accounts for why some
+attitudes (meanings) survive (are endorsed) and others do not.
+Meanings that survive must fit into the space of reasons - they must
+be assertable and justifiable, even if the participants are unable to
+explicitly articulate this.  This makes the evolution of discourse
+intelligible as a rational process, rather than a natural process.
+Responses to questions are not explicable as effects caused by "true
+values" or the like; this would make them fundamentally non-rational.
+Or to borrow a bon mot from Garfinkel, this would make respondents
+"rational dopes".
+
+Similar language: "negotiation", e.g. "...I suggest that the content
+of talk indicates that imposed hierarchies are continually
+re-negotiated..."  Negotiation as rational evolution?
+
+The "true score" and other orthodox models account for sentience, not
+sapience.
+
+\subsection{Verum Factum}
+
+Cartesianism (spectator, etc.) inspection, discovery, certainty,
+foundationism (external foundation grounding knowledge) v.
+
+Verum Factum, geneological/historical, following growth/development,
+not certainty but ???; no foundationism, no priviledged vocab, no
+external source of authority
+
+Critical notions: authority.  For evidence etc. key idea is authority - the only
+kind of authority is the kind we assent to.  So the question is what
+do we treat as authoritative and why, rather than how can we discover
+the One True external foundational source of authority and learn to
+speak its language
+
+Critical notions: vocabulary.  Regardless of what there is, we can
+only talk about it by using vocabs.
+
+Relevance to SR: we make our truths, by engaging in dialog with
+respondents in order to teach/train them to understand what we want.
+In other words we work to make our scorecards converge.  We can never
+be sure that researchers and respondents understand each other, have
+the same interpretations of qx text, etc.  But we can do what nature
+does in evolution and learning: institute a cyclic process of
+experiment, feedback, and correction.  This is operational even at the
+most simple and basic level of communication.  So we can use this fact
+to our advantage.
+
+Communication interactions as not essentially different from processes
+of evolution and learning.  Evolutionary process tend to coordinate
+organism and environment; learning processes adapt the learner to the
+task environment, etc.  Any discursive exchange - even simple
+greetings, etc. - does the same sort of thing: coordinate and mutually
+adjust the parties to the exchange.
+
+\subsection{Rational Evidence}
+
+Evidence-Based Rational SR
+
+RCT: isolate the causal factor that links Treatment to Outcome
+
+THe mistake make by orthodox SR (shown by its vocab of measurement,
+error, etc.) is that it confuses the space of causes and the space of
+reasons.
+
+In RCT, we observe a stimulus followed by a response (T followed by O)
+and postulate a causal relation.  In SR, we observe a Q performance
+followed by a R performance.  In fact this is an idealization since Q
+and R cannot be isolated - they are both joint performances.  Ignore
+that for now; the point is that what makes them intelligible as
+performances is the space of reasons, not causes.  That is, as
+discursive episodes they are essentially rational in a way the T-O
+trials are not.  By definition, "rational" means involving concepts.
+Stimulus-response does not involve concepts and so is not rational in
+this favored sense.  The natural world may be lawful, but it is not
+rational.
+
+So SR should abandon the orthodox vocab of measurment, etc. in favor
+of one involving rationality.  What would "evidence-based" mean, then?
+Not the kind of evidence involve in natural science, since such
+evidence does not involve concepts and thus meaning.  Instead evidence
+inescapably involves meaning and understanding.  What counts as
+evidence is what we count as a rational explanation or story.  And
+this necessarily involves the perspective of the participants - it is
+their rationality, their giving and asking for reasons, that provides
+the observational basis of evidence.
+
+ One consequence: Qx does not involve measurement.  SR can use stats
+ to statistically measure the collected data, but that is quite
+ separate from whether the data measure anything.  So you can say that
+ x\% of resondents pick option X, but that does not mean that you have
+ measured the distribution of "true values" of some latent variable.
+ What you have measure is a distribution of deontic scores, or
+ discursive postures.  There is no warrant for claiming that each
+ member of the x\% means the same thing by picking X.
+
+\subsection{Misc}
+
+1.  What is a question?  Better: what counts as a question, what is it to ask a question?
+
+2.  Ditto for answer.
+
+Q and A as parts of a whole (holistic view)
+
+Q token v. Q performance, etc.
+
+\subsection{Erotetic Discursive Practice}
+
+
+EDP as production of data rather than discovery of truth
+
+\subsection{Replication}
+
+Goal is replication.  Compare: blood work, e.g. measuring
+cholesteral.  The measuring apparatus reacts to the sample, not the
+other way around.  For EDP, respondent reacts to the question, so the
+question is analogous to the blood sample.  The response is a kind of
+measurement of the question, not the other way around.
+
+Replicability means same setup, same experimental conditions; in EDP
+this means replication of conceptual structure, which is accomplished
+by the dialog preceding the question.  Traditionally, "ask the same
+question"; in practice this is impossible, since what counts is not
+the question text but respondent's grasp of the sense.  So the
+"experimental setup" should be viewed as the work of teaching the
+respondent what the sense of the question is.  Survey interviewing is
+essentially interventionist, but this is not necessarily a bad thing,
+since lab experiments are too - they "intervene" to set up
+experimental "initial conditions".  The difference is that setting up
+initial conditions ("same meaning") in question asking means tutoring
+the respondent.
+
+\subsection{Myths and Mythologies}
+
+\begin{itemize}
+\item The Myth of Question Independence says that the meaning of a
+    question is independent of context.  But the meaning of a question
+    is always dependent on what came before it.
+\item Myth of Autonomy. Interviewer and Respondent.
+\item Myth of Error
+\end{itemize}
+
+\subsection{Dopes}
+
+Garfinkel's dopes - cultural, judgmental, psychological
+
+Dehumanization.  Orthodox Survey Research (OSR) dehumanizes
+participants.  The R is a sampling unit.  The mythology of OSR
+measurement treats the human R as a natural object to be measured
+rather than a person.
+
+
+\clearpage
+\appendix
+\begin{appendices}
+\section{Bibliography}
+%% \addcontentsline{toc}{chapter}{Bibliography}
+%% \bibliographystyle{plainnat}
+\printbibliography[heading=none]
+\end{appendices}
+
+\end{document}
